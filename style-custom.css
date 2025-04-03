@@ -10,15 +10,47 @@ body {
     padding-top: var(--wp--style--root--padding-top, 100px); /* ggf. anpassen */
 }
 
-/* Offset für Adminbar */
+/* Offset für Adminbar (Desktop) */
 body.admin-bar header.wp-block-template-part {
     top: 32px;
 }
   
 @media screen and (max-width: 782px) {
-    body.admin-bar header.wp-block-template-part {
-        top: 46px;
+    header.wp-block-template-part {
+        position: sticky;
+        top: 0;
     }
+    
+    body.admin-bar header.wp-block-template-part {
+        top: 0;
+    }
+    
+    /* Menü im geöffneten Zustand anpassen */
+	.wp-block-navigation__responsive-container.is-menu-open {
+		position: fixed;
+        margin: 0 !important;
+        padding: 0.5em 0 !important;
+		inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
+		width: 100vw;
+		height: 100vh;
+		overflow-y: auto;
+		z-index: 1001;
+	}
+
+	/* Damit der innere Bereich sich natürlich anpasst */
+	.wp-block-navigation__responsive-dialog {
+		height: auto;
+		max-height: none;
+		padding: 0px !important;
+		box-sizing: border-box;
+	}
+
+    .wp-block-navigation__responsive-close {
+        padding: 33px 30px;
+        display: flex;
+        justify-content: right;
+    }
+    
 }
 
 /* Header Animation */
@@ -46,4 +78,8 @@ body.scrolled header.wp-block-template-part {
   
 body.scrolled header.wp-block-template-part a {
     color: black;
+}
+
+body.scrolled .wp-block-navigation__responsive-container.is-menu-open {
+    padding: 0 !important;
 }
