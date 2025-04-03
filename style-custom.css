@@ -57,27 +57,27 @@ body.admin-bar header.wp-block-template-part {
 header.wp-block-template-part {
     transition: all 0.3s ease;
     background-color: transparent;
-    color: white;
+    color: var(--wp--preset--color--base);
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
   
 header.wp-block-template-part a {
-    color: white;
+    color: var(--wp--preset--color--base);
 }
   
 body.scrolled header.wp-block-template-part {
-    background-color: rgba(var(--wp--preset--color--base-rgb, 255, 255, 255), 0.8);
+    background-color: var(--wp--preset--color--accent-5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    color: black;
+    color: var(--wp--preset--color--contrast);
     padding-top: 0;
     padding-bottom: 0;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
   
 body.scrolled header.wp-block-template-part a {
-    color: black;
+    color: var(--wp--preset--color--contrast);
 }
 
 body.scrolled .wp-block-navigation__responsive-container.is-menu-open {
