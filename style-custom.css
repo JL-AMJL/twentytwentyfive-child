@@ -83,3 +83,16 @@ body.scrolled header.wp-block-template-part a {
 body.scrolled .wp-block-navigation__responsive-container.is-menu-open {
     padding: 0 !important;
 }
+
+.pull-up-100vh {
+    margin-top: -100vh !important;
+}
+
+.wp-block-post-content > .alignfull {
+    margin-left: calc(-1 * var(--wp--style--root--padding-left, 1rem));
+    margin-right: calc(-1 * var(--wp--style--root--padding-right, 1rem));
+}
+
+#bg-slider {
+    width: 100vw !important;
+}

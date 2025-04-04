@@ -1,0 +1,9 @@
+/* Hintergrund im Editor abdunkeln */
+.editor-styles-wrapper {
+    background-color: #b8b8b8 !important;
+}
+
+.editor-styles-wrapper h1.wp-block-post-title {
+    font-size: 1em;
+    text-align: center;
+}

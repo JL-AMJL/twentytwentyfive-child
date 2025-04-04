@@ -14,3 +14,7 @@ add_action( 'wp_enqueue_scripts', function() {
         true
     );
 }, 20 );
+
+add_action( 'after_setup_theme', function() {
+    add_editor_style( 'editor-style.css' );
+} );
