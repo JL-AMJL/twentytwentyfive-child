@@ -6,15 +6,17 @@ header.wp-block-template-part {
     z-index: 1000;
 }
 
+/*
 body {
-    padding-top: var(--wp--style--root--padding-top, 100px); /* ggf. anpassen */
+    padding-top: var(--wp--style--root--padding-top, 100px);
 }
+*/
 
 /* Offset für Adminbar (Desktop) */
 body.admin-bar header.wp-block-template-part {
     top: 32px;
 }
-  
+
 @media screen and (max-width: 782px) {
     header.wp-block-template-part {
         position: sticky;
