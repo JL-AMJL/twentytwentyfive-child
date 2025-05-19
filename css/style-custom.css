@@ -85,3 +85,14 @@ body.scrolled header.wp-block-template-part a {
 body.scrolled .wp-block-navigation__responsive-container.is-menu-open {
     padding: 0 !important;
 }
+
+/* Fix für Standard WP-Padding und -Margin Top */
+main.wp-block-group {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+main.wp-block-group > .wp-block-group {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
