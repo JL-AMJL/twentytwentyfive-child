@@ -11,33 +11,35 @@ function updateHeaderScrollState() {
 window.addEventListener("scroll", updateHeaderScrollState);
 
 document.addEventListener("DOMContentLoaded", function () {
-  updateHeaderScrollState(); // prüft Scrollzustand direkt beim Laden
+  updateHeaderScrollState(); // Scrollstatus direkt beim Laden prüfen
 
-  // Menü-Status-Klasse (menu-open) dynamisch setzen
   const body = document.body;
   const modal = document.querySelector(".wp-block-navigation__responsive-container");
-  const openButton = document.querySelector(".wp-block-navigation__responsive-container-open");
-  const closeButton = document.querySelector(".wp-block-navigation__responsive-container-close");
+
+  if (!modal) return;
 
   const updateBodyMenuClass = () => {
-    if (modal && modal.classList.contains("is-menu-open")) {
+    if (modal.classList.contains("is-menu-open")) {
       body.classList.add("menu-open");
     } else {
       body.classList.remove("menu-open");
     }
   };
 
-  if (openButton && closeButton && modal) {
-    openButton.addEventListener("click", () => {
-      setTimeout(updateBodyMenuClass, 50); // Warte kurz, bis Klasse gesetzt wurde
-    });
+  // Beobachte NUR das Hinzufügen/Entfernen von Klassen am Modal
+  const observer = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+      if (mutation.attributeName === "class") {
+        updateBodyMenuClass();
+      }
+    }
+  });
 
-    closeButton.addEventListener("click", () => {
-      updateBodyMenuClass();
-    });
+  observer.observe(modal, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
 
-    // Beobachtet Änderungen an der Klasse (z. B. ESC oder Klick außerhalb)
-    const observer = new MutationObserver(updateBodyMenuClass);
-    observer.observe(modal, { attributes: true, attributeFilter: ["class"] });
-  }
+  // Fallback falls Modal schon beim Laden offen ist
+  updateBodyMenuClass();
 });

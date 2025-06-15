@@ -67,14 +67,42 @@ body.scrolled header.wp-block-template-part a {
     color: var(--wp--preset--color--contrast);
 }
 
-body.scrolled.menu-open header.wp-block-template-part {
+/* Navigation Modal fix */
+body.menu-open header.wp-block-template-part {
     position: relative;
     z-index: auto;
 }
 
-body.scrolled.menu-open {
+body.menu-open {
     overflow: hidden;
 }
+
+
+/* Navigation Modal Animation */
+/*
+.wp-block-navigation__responsive-container {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transition-delay: 0s;
+}
+
+.wp-block-navigation__responsive-dialog {
+  transform: translateY(-1rem);
+  transition: transform 0.2s ease;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog {
+  transform: translateY(0);
+}
+*/
 
 /*
 body.scrolled .wp-block-navigation__responsive-container.is-menu-open {
